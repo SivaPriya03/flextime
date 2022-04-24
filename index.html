@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="counter"></h1>
+    <script>
+      function updateCountEle(count) {
+        const counter = document.getElementById('counter');
+        counter.innerText = count;
+      }
+      let count = 0;
+      function updateUIByCount() {
+        count++;
+        updateCountEle(count);
+      }
+
+      function blockMainThread(seconds) {
+        const MS = seconds * 1000;
+        const now = performance.now();
+        while (performance.now() - now < MS) {}
+      }
+
+      const start = Date.now();
+
+      function getCurrentSeconds() {
+        const elapsed = Date.now() - start;
+        return Math.floor(elapsed / 1000);
+      }
+      function updateUIByDate() {
+        updateCountEle(getCurrentSeconds());
+      }
+      function updateUIByFrame() {
+        updateUIByDate();
+        requestAnimationFrame(updateUIByFrame);
+      }
+
+      //   setInterval(updateUIByDate, 1000);
+      updateUIByFrame();
+    </script>
+    <script>
+      let x = 2;
+      let y = 3;
+      let z = eval('x + y');
+      console.log(z);
+    </script>
+  </body>
+</html>
