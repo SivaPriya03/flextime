@@ -12,7 +12,7 @@ const createWindow = () => {
   });
   isAppRendered = true;
   startTimer();
-  win.loadFile(path.join(__dirname, 'client/desktop/build', 'index.html'));
+  win.loadFile(path.join(__dirname, 'svelte/desktop/public', 'index.html'));
 };
 app.whenReady().then(() => {
   createWindow();
@@ -22,7 +22,7 @@ const NOTIFICATION_TITLE = 'Basic Notification';
 const NOTIFICATION_BODY = 'Notification from the Main process';
 
 function startTimer() {
-  setTimeout(showNotification, 5000);
+  setInterval(showNotification, 5000);
 }
 const urgency = ['normal', 'critical', 'low'];
 
