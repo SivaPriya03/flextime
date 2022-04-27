@@ -14,5 +14,5 @@ else
     echo "Tweaking for Desktop"
     cp -r public $folder
     node generateBuild.js $folder
-    echo -e "\033[31m Build done"
+    echo "Build done"
 fi

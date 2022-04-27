@@ -12,7 +12,7 @@ const createWindow = () => {
   });
   isAppRendered = true;
   startTimer();
-  win.loadFile(path.join(__dirname, 'svelte/desktop/public', 'index.html'));
+  win.loadFile(path.join(__dirname, 'client/desktop/public', 'index.html'));
 };
 app.whenReady().then(() => {
   createWindow();
